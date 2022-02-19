@@ -1,10 +1,10 @@
-\c cta_dev;
+\c envy_woodworks;
 
-INSERT INTO test (name) VALUES
-('Monday'),
-('Tuesday'),
-('Wednesday'),
-('Thursday'),
-('Friday'),
-('Saturday'),
-('Sunday');
+INSERT INTO wood_types (name, description, is_available, price, lengths, image) VALUES
+('Douglas Fir Rough', 'Douglas Fir is made from timbers used to frame those very warehouses and factories. People are drawn to this reclaimed wood paneling look. It beautifully complements a variety of design styles and makes it one of our most popular panels. Douglas Fir paneling is a very versatile wood, available rough sawn or planed smooth to give you the perfect touch of character in your home.', true, 200, '5-12', 'https://www.mfinelumber.com/doug-fir-rough?pgid=kqkwa4r3-0e62da9c-df8e-4064-8ec9-df99d0c7d2db' ),
+('Douglas fir clean face', 'This option shows the dressed face of the douglas fir after its been planed down, which shows the beautiful range of warm red tones and pronounced growth rings that can be used naturally or be stained for paneling, flooring, tables and much more!', true, 300, '5-12', 'https://www.mfinelumber.com/doug-fir-clean-face?pgid=kqkwbo31-fc66e784-db3f-45a9-aaee-456147555aee'),
+('Oak barnwood clean face', 'The feature shows old oak that was used in an older barn, dressed smooth but still has a strong, reclaimed quality with lots of character markings such as knot holes, nail holes, small splits, and other rustic signs of weathering', false, 400, '5-12', 'https://www.mfinelumber.com/oak-barnwood?pgid=kqkwhkdq-dca8e0a8-fa00-4373-b58f-49701d7ef14d'),
+('Oak Barnwood wirebrushed finish', 'After the original face barn wood has been sanded, we provide several finishing options that show a wide range of rustic tones. Offering an amazing finished look for the grey weathered, skip planed, or wire-brushed barnwood options.', true, 350, '5-12', 'https://www.mfinelumber.com/oak?pgid=kqkwkx0l-f92b8367-fb15-4ede-b7dd-0177c108e83a'),
+('Oak grey barnwood rough', 'This classic material has been salvaged from siding and timbers of barns and antique structures from all over the United States. Although it may come from many different species, they all share a gorgeous variety of grey tones, which perfectly identifies as the classic, weathered barnwood that is often used as paneling for walls and ceilings.', false, 250, '5-12', 'https://www.mfinelumber.com/grey-barnwood-rough?pgid=kqkwvysu-8fa423f1-6076-4e1d-a9b3-2bfd5654c23e'),
+('Oak grey barnwood wirebrushed rough', 'This classic material has been salvaged from siding and timbers of barns and antique structures from all over the United States. Although it may come from many different species, they all share a gorgeous variety of grey tones, which perfectly identifies as the classic, weathered barnwood that is often used as paneling for walls and ceilings.', true, 200, '5-12', 'https://www.mfinelumber.com/oak-barnwood-rough?pgid=kqkwsmpb-73ad3140-f45f-49b7-b55d-71b8a71cf00a');
+

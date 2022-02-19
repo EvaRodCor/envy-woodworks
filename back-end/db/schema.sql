@@ -1,11 +1,15 @@
-DROP DATABASE IF EXISTS cta_dev;
-CREATE DATABASE cta_dev;
+DROP DATABASE IF EXISTS envy_woodworks;
 
-\c cta_dev;
+CREATE DATABASE envy_woodworks;
 
-DROP TABLE IF EXISTS test;
+\c envy_woodworks;
 
-CREATE TABLE test (
+CREATE TABLE wood_types (
     id SERIAL PRIMARY KEY, 
-    name TEXT
+    name TEXT,
+    description TEXT,
+    is_available BOOLEAN,
+    price INT,
+    lengths TEXT,
+    image TEXT
 );

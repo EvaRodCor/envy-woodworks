@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const cors = require("cors");
 const express = require("express");
+const woodlist = require('./controllers/woodlistController');
 
 // CONFIGURATION
 const app = express();
@@ -11,26 +12,18 @@ app.use(express.json()); // Parse incoming JSON
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.send("Hello, world!");
+  res.send("Welcome to wood works");
 });
 
-/////////////////////////////////////
-// REMOVE AFTER SUCCESSFUL DEPLOYMENT
-/////////////////////////////////////
-const db = require("./db/dbConfig.js");
+app.use('/woodlist', woodlist);
 
-app.get("/test", async (req, res) => {
-  try {
-    const allDays = await db.any("SELECT * FROM test");
-    res.json(allDays);
-  } catch (err) {
-    res.json(err);
-  }
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome to Envy-Woodworks');
 });
 
-/////////////////////////////////////
-// REMOVE AFTER SUCCESSFUL DEPLOYMENT
-/////////////////////////////////////
+app.get('*', (req, res) => {
+  res.status(404).send("this is not the page you are looking for")
+})
 
 // EXPORT
 module.exports = app;
