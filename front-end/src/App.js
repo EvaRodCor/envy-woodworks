@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import toys from "../../back-end/controllers/toysController";
 const API = process.env.REACT_APP_API_URL;
 
 console.log(API);
@@ -7,7 +8,7 @@ function App() {
   const [days, setDays] = useState([]);
   useEffect(() => {
     axios
-      .get(`${API}/test`)
+      .get(`${API}/toys`)
       .then(
         (response) => {
           setDays(response.data);
@@ -19,8 +20,8 @@ function App() {
   return (
     <div>
       <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
+        {toys.map((toy) => (
+          <li key={toy.name}>{toy.name}</li>
         ))}
       </ul>
     </div>
