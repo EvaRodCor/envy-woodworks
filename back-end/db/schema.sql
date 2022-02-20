@@ -1,15 +1,16 @@
-DROP DATABASE IF EXISTS envy_woodworks;
+DROP DATABASE IF EXISTS my_spectrum;
 
-CREATE DATABASE envy_woodworks;
+CREATE DATABASE my_spectrum;
 
-\c envy_woodworks;
+\c my_spectrum;
 
-CREATE TABLE wood_types (
+CREATE TABLE toys (
     id SERIAL PRIMARY KEY, 
     name TEXT,
     description TEXT,
-    is_available BOOLEAN,
     price INT,
-    lengths TEXT,
+    category TEXT,
+    type TEXT,
+    is_available BOOLEAN,
     image TEXT
 );

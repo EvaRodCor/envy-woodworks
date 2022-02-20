@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const cors = require("cors");
 const express = require("express");
-const woodlist = require('./controllers/woodlistController');
+const toys = require('./controllers/toysController');
 
 // CONFIGURATION
 const app = express();
@@ -11,14 +11,11 @@ app.use(cors());
 app.use(express.json()); // Parse incoming JSON
 
 // ROUTES
-app.get("/", (req, res) => {
-  res.send("Welcome to wood works");
-});
 
-app.use('/woodlist', woodlist);
+app.use('/toys', toys);
 
 app.get('/', (req, res) => {
-  res.status(200).send('Welcome to Envy-Woodworks');
+  res.status(200).send('Welcome to My Spectrum');
 });
 
 app.get('*', (req, res) => {

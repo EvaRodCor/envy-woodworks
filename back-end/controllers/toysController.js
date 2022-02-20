@@ -1,24 +1,24 @@
 const express = require("express");
 
-const woodList = express.Router();
+const toys = express.Router();
 
 const {
-    getAllWood,
-    specificWood,
-    createWoodItem,
-    deleteWoodItem,
-    updateWoodItem,
-} = require("../queries/woodList");
+    getAllToys,
+    specificToy,
+    createToy,
+    deleteToy,
+    updateToys,
+} = require("../queries/toys");
 
 
 
-woodList.get('/', async (req, res) => {
+toys.get('/', async (req, res) => {
     console.log("GET / from wood_list")
-    const allWood = await getAllWood();
-    allWood ? 
+    const allToys = await getAllToys();
+    allToys ? 
     res.json({ 
         success: true,
-            payload: allWood}) : 
+            payload: allToys}) : 
     res.status(404).send({ 
         success: false,
             payload: "/page not found/"});
@@ -27,10 +27,10 @@ woodList.get('/', async (req, res) => {
 
 
 
-woodList.get('/:id', async (req, res) => {
+toys.get('/:id', async (req, res) => {
     const { id } = req.params;
-    console.log("GET /:id from wood_list");
-    const oneItem = await specificWood(id);
+    console.log("GET /:id from Toys");
+    const oneItem = await specificToy(id);
     oneItem.result ?
     res.status(404).send({ 
         success: false,
@@ -43,10 +43,10 @@ woodList.get('/:id', async (req, res) => {
 
 
 
-woodList.post('/', async (req, res) => {
-    console.log("GET/ new wood Item")
+toys.post('/', async (req, res) => {
+    console.log("GET/ new toy")
     const { body } = req;
-    const addItem = await createWoodItem(body)
+    const addItem = await createToy(body)
     addItem ? res.json({ 
     success: true, 
             payload: addItem }) :
@@ -57,9 +57,9 @@ woodList.post('/', async (req, res) => {
 
 
 
-woodList.delete("/:id", async (req, res) => {
+toys.delete("/:id", async (req, res) => {
     const { id } = req.params;
-    const deletedItem = await deleteWoodItem(id);
+    const deletedItem = await deleteToy(id);
     deletedItem.result
     ? res.status(404).send({ 
         success: false,
@@ -73,10 +73,10 @@ woodList.delete("/:id", async (req, res) => {
 
 
 
-woodList.put("/:id", async (req, res) => {
+toys.put("/:id", async (req, res) => {
     const { id } = req.params;
     const { body } = req;
-    const updatedItem = await updateWoodItem(body, id);
+    const updatedItem = await updateToys(body, id);
     updatedItem ? res.json({ 
         success: true, 
                 payload: updatedItem }) :
@@ -88,4 +88,4 @@ woodList.put("/:id", async (req, res) => {
 
 
 
-module.exports = woodList;
+module.exports = toys;
