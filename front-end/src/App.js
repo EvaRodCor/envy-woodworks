@@ -1,17 +1,16 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import toys from "../../back-end/controllers/toysController";
 const API = process.env.REACT_APP_API_URL;
 
 console.log(API);
 function App() {
-  const [days, setDays] = useState([]);
+  const [toys, setToys] = useState([]);
   useEffect(() => {
     axios
-      .get(`${API}/toys`)
+      .get(`${API}toys`)
       .then(
         (response) => {
-          setDays(response.data);
+          setToys(response.data.payload);
         },
         (error) => console.log("get", error)
       )
