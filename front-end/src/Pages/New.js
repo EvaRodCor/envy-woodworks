@@ -1,7 +1,7 @@
 function New() {
     return (
         <div>
-            <h1>"Welcome to New Page"</h1> 
+            <h1 style={{color: "white"}}>"Welcome to New Page"</h1> 
         </div>
     )
 }
