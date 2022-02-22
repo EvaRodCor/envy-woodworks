@@ -1,28 +1,25 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-const API = process.env.REACT_APP_API_URL;
+import { Routes, Route } from "react-router-dom";
+import NavBar from "./Components/NavBar";
+import Edit from "./Pages/Edit";
+import Home from "./Pages/Home";
+import Index from "./Pages/Index";
+import New from "./Pages/New";
+import Show from "./Pages/Show";
 
-console.log(API);
+
 function App() {
-  const [toys, setToys] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${API}toys`)
-      .then(
-        (response) => {
-          setToys(response.data.payload);
-        },
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
-  }, []);
   return (
-    <div>
-      <ul>
-        {toys.map((toy) => (
-          <li key={toy.name}>{toy.name}</li>
-        ))}
-      </ul>
+    <div className="App">
+      <NavBar/>
+        <main>
+            <Routes>
+              <Route path='/' element={<Home/>}/>
+              <Route path='/toys' element={<Index/>}/>
+              <Route path='/toys/:id' element={<Show/>}/>
+              <Route path='/toys/:id/edit' element={<Edit/>}/>
+              <Route path='/toys/new' element={<New/>}/>
+            </Routes>
+        </main>
     </div>
   );
 }

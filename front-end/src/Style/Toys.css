@@ -1,0 +1,29 @@
+
+.card {
+    box-shadow: 0 4px 8px 0 rgb(248, 247, 247);
+    transition: 0.3s;
+    width: 40%;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgb(253, 251, 251);
+  }
+  
+  .toy-img {
+    width: 100%;
+  height: auto;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .container-one {
+    padding: 2px 16px;
+    color: white;
+    font-size: 9px;
+  }
+
+
+  .name{
+      font-size: 20px;
+      font-family: 'Shizuru';
+      color: whitesmoke;
+  }
