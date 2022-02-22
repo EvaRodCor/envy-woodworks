@@ -1,0 +1,64 @@
+
+input[type=text] {
+    color: aliceblue;
+    display: inline-block;
+    margin: 8px 0;
+    padding: 12px 20px;
+    width: 30%;
+    background: black;
+    border: none;
+    border-bottom: 2px solid rgba(95, 0, 204, 0.568);
+    box-sizing: border-box;
+}
+
+label {
+    color: aliceblue;
+    text-align:left;
+    font-family: 'Shizuru';
+    font-size: 20px;
+
+}
+
+.add-container {
+text-align: center;
+border-radius: 5px;
+background-color: #000000;
+padding: 20px;
+}
+
+input[type=number] {
+    color: white;
+    display: inline-block;
+    margin: 8px 0;
+    padding: 12px 20px;
+    width: 30%;
+    background: black;
+    border: none;
+    border-bottom: 2px solid rgba(95, 0, 204, 0.568);
+    box-sizing: border-box;
+}
+
+button.back-main {
+    margin-top: -20px;
+    background-color: #3740c8;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 25px;
+    transition: all .5s;
+
+}
+
+button.back-main:hover {
+    background-color: #000000;
+    
+}
+
+label.price {
+    color: aliceblue;
+    text-align:left;
+    font-family: 'Shizuru';
+    font-size: 25px;
+
+}

@@ -1,7 +1,9 @@
+import NewToyForm from "../Components/NewToyForm";
+
 function New() {
     return (
         <div>
-            <h1 style={{color: "white"}}>"Welcome to New Page"</h1> 
+            <NewToyForm/>
         </div>
     )
 }

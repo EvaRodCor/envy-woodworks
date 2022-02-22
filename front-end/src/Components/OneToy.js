@@ -8,23 +8,24 @@ return (
     <section className="toys-section">
         <article className="card">
             <strong className="name">{toy.name}</strong>
+            
                 <br></br>
-                    <Link to={`/toys/${toy.id}`}>
+                    <Link style={{ textDecoration: 'none' }} to={`/toys/${toy.id}`}>
                         <img className="toy-img" src={toy.image} alt="toy"></img>
+                        <div className="container-one">
+                            <span className="description">{toy.description}</span>
+                            <br></br>
+                            <br></br>
+                            <h4 className="price"> Price: {"$" + toy.price}</h4>
+                            <br></br>
+                        <div className="available">
+                            {toy.is_available ?
+                            (<p style={{ color: "green" }}>{"Available"}</p>) : 
+                            (<p style={{ color: "red" }}>{"Out of stock"}</p>)}
+                        </div>
+                            <br></br>
+                        </div>
                     </Link>
-                    <div className="container-one">
-                <span className="description">{toy.description}</span>
-                <br></br>
-                <br></br>
-            <h4 className="price"> Price: {"$" + toy.price}</h4>
-            <br></br>
-            <div className="available">
-                {toy.is_available ?
-                (<p style={{ color: "green" }}>{"Available"}</p>) : 
-                (<p style={{ color: "red" }}>{"Out of stock"}</p>)}
-            </div>
-            <br></br>
-            </div>
         </article>
     </section>
     <br></br>
