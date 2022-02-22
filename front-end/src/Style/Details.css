@@ -18,7 +18,7 @@ body {
 }
 
 .container-two{
-width: 70%;
+width: 65%;
 margin-top: -2px;
 }
 
@@ -42,12 +42,12 @@ margin-bottom: 20px;
 
 .container-two h1 {
 font-weight: 300;
-font-size: 25px;
+font-size: 50px;
 color: #43484D;
 letter-spacing: -2px;
 }
 .container-two p {
-    font-size: 11px;
+    font-size: 20px;
     font-weight: 300;
     color: #86939E;
     line-height: 20px;
@@ -66,13 +66,13 @@ h4.detail-price {
 }
 
 button.btn {
-    display: inline-block;
+    margin-right: 5px;
     background-color: #3740c8;
-    border-radius: 6px;
-    font-size: 11px;
+    border-radius: 10px;
+    font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 10px 25px;
     transition: all .5s;
 }
 

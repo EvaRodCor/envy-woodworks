@@ -30,7 +30,12 @@ return (
             <div className="container-two">
                     <h1 className="detail-name">{toy.name}</h1>
                     <p className="detail-description">{toy.description}</p>
-                    <h4 className="detail-price">  Price: $ {toy.price}</h4>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <h4 className="detail-price">Price: {"$" + toy.price}</h4>
                 <div className="detail-available">
                     {toy.is_available ?
                     (<p style={{ color: "green" }}>{"Available"}</p>) : 

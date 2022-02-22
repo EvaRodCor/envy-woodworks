@@ -4,14 +4,14 @@ nav {
     display:flex;
     justify-content: space-between;
     align-items: center;
-    padding: .50em 6em .50em 6em;
+    padding: 1.5em 6em 1.5em 6em;
     margin-bottom: 2em;
 }
     
     
     img.logo {
-        width: 100px;
-        height: 70px;
+        width: 145px;
+        height: 110px;
         position:absolute;
         left:0;
         top:0;  

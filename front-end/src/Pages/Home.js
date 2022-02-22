@@ -3,7 +3,7 @@ import '../Style/Home.css';
 
 function Home () {
     return (
-<div>
+<div className='Home'>
   <h1 className='welcome'>Welcome to mySpectrum</h1>
 <div className="container">
   <div className="pole"><div></div><div></div><div></div><div></div><div></div><div></div></div>

@@ -16,12 +16,14 @@ return (
                 <span className="description">{toy.description}</span>
                 <br></br>
                 <br></br>
-            <h4 className="price">  Price: $ {toy.price}</h4>
+            <h4 className="price"> Price: {"$" + toy.price}</h4>
+            <br></br>
             <div className="available">
                 {toy.is_available ?
                 (<p style={{ color: "green" }}>{"Available"}</p>) : 
                 (<p style={{ color: "red" }}>{"Out of stock"}</p>)}
             </div>
+            <br></br>
             </div>
         </article>
     </section>

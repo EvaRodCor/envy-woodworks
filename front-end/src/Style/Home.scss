@@ -11,18 +11,27 @@ $clr1: #0ff;
 $clr2: #f0f;
 $clr3: #ff0;
 
-body {
-    background-color: #000;
+body{
+  background-color: #000;
+}
+
+.Home {
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: $size * 15;
+  overflow: hidden;
 }
 
 h1.welcome {
   font-family: 'Shizuru';
-  font-size: 50px;
+  font-size: 75px;
   font-weight: 400;
   text-align: center;
   position: absolute;
-  bottom: 40%;
-  right: 1em; 
+  bottom: 90%;
 }
 
 .welcome {
@@ -65,7 +74,7 @@ h1.welcome {
 
     & > div {
     position: absolute;
-    background-color: rgba(22, 51, 216, 0.712);
+    background-color: rgba(22, 51, 216, 0.616);
     box-shadow: 0 0 $size * 0.5 rgb(241, 241, 241) inset;
     overflow: hidden;
 
