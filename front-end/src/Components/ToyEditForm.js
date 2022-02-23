@@ -1,12 +1,11 @@
 import axios from "axios";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import '../Style/New.css';
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
+
+function ToyEditForm () {
 const API = process.env.REACT_APP_API_URL;
-
-function NewToyForm() {
-// let { id } = useParams();
+let { id } = useParams();
 let navigate = useNavigate();
 
 const [toy, setToy] = useState({
@@ -15,15 +14,13 @@ const [toy, setToy] = useState({
     price: 0,
     category: "",
     type: "",
-    is_available: true,
     image: "",
+    is_available: true
 });
 
-
-
-const newToy = (addedToy) => {
+const updateToy = (updatedToy) => {
     axios
-    .post(`${API}/toys/`, addedToy)
+    .put(`${API}/toys/${id}`, updatedToy)
     .then(
         () => {
         navigate(`/toys`);
@@ -33,29 +30,27 @@ const newToy = (addedToy) => {
     .catch((err) => console.warn("catch", err));
 };
 
-
-
-
 const handleTextChange = (event) => {
     event.target.id === "price"
     ? setToy({ ...toy, [event.target.id]: Number(event.target.value) })
     : setToy({ ...toy, [event.target.id]: event.target.value });
 };
 
-
-
-
 const handleCheckboxChange = () => {
     setToy({ ...toy, is_available: !toy.is_available });
 };
 
-
+useEffect(() => {
+    axios.get(`${API}/toys/${id}`).then(
+    (response) => setToy(response.data.payload),
+    () => navigate(`/toys`)
+    );
+}, [API, id, navigate]);
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    newToy(toy);
+    updateToy(toy, id);
 };
-
 
 return (
     <div className="add-container">
@@ -138,12 +133,12 @@ return (
         <label htmlFor="is_available">Available:   </label>
         <input
             id="is_available"
-            value={toy.is_available }
+            value={toy.is_available}
             type="checkbox"
             onChange={handleCheckboxChange}
         />
         <button className="back-main">Submit</button>
-        <Link to={'/toys'}>
+        <Link to={`/toys/${id}`}>
             <button className="back-main">Back</button>
         </Link>
     </form>
@@ -151,4 +146,4 @@ return (
     );
 }
 
-export default NewToyForm;
+export default ToyEditForm;

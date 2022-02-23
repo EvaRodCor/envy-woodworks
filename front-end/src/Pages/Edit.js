@@ -1,7 +1,9 @@
+import ToyEditForm from "../Components/ToyEditForm";
+
 const Edit = () => {
     return (
         <div>
-            <h1>'Welcome to Edit Page'</h1>
+            <ToyEditForm/>
         </div>
         )
     }

@@ -16,13 +16,13 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-perspective: 750px;
-  perspective: 750px;
+          perspective: 750px;
   overflow: hidden;
 }
 
@@ -37,15 +37,7 @@ h1.welcome {
 
 .welcome {
   color: #fff;
-  text-shadow: 
-  0 0 7px #fff,
-  0 0 10px #fff,
-  0 0 21px #fff,
-  0 0 42px #6f29f0,
-  0 0 82px #6f29f0,
-  0 0 92px #6f29f0,
-  0 0 102px #6f29f0,
-  0 0 151px #6f29f0;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #6f29f0, 0 0 82px #6f29f0, 0 0 92px #6f29f0, 0 0 102px #6f29f0, 0 0 151px #6f29f0;
 }
 
 .container {
