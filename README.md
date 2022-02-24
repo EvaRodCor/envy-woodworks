@@ -1,4 +1,8 @@
 # PERN Final Project Template
+Main Github Repo: https://github.com/EvaRodCor/my-spectrum
+
+Front-End Netlify: https://wonderful-austin-acddd3.netlify.app/
+Back_End Heroku: https://data-my-spectrum.herokuapp.com
 
 - select `use this template`
 - clone this repo

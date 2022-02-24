@@ -77,3 +77,9 @@ nav {
         box-shadow: 0 5px #666;
         transform: translateY(4px);
 }
+
+.icon {
+    color: blue;
+    width: 20%;
+    height: 20%;
+}

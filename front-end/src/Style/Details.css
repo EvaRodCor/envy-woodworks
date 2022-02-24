@@ -88,3 +88,8 @@ button.btn:hover {
     background-color: #000000;
     
 }
+
+.icon-detail {
+    color: aliceblue;
+    margin-left: 10px;
+}

@@ -7,8 +7,11 @@ import New from "./Pages/New";
 import Show from "./Pages/Show";
 
 
+
+
 function App() {
-  return (
+  
+return (
     <div className="App">
       <NavBar/>
         <main>

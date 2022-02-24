@@ -135,6 +135,7 @@ return (
             id="is_available"
             value={toy.is_available}
             type="checkbox"
+            checked={true}
             onChange={handleCheckboxChange}
         />
         <button className="back-main">Submit</button>

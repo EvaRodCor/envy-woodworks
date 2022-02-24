@@ -2,6 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import '../Style/New.css';
+import useSound from "use-sound";
+import back from "../Audio/back.mp3";
+import submit from "../Audio/submit.mp3";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -55,6 +58,30 @@ const handleSubmit = (event) => {
     event.preventDefault();
     newToy(toy);
 };
+
+
+
+const [playbackRate, setPlaybackRate] = useState(0.75);
+
+const[play] = useSound(back, {
+    volume: 0.5,
+});
+
+const [play2] = useSound(submit, {
+    volume: 0.5,
+});
+
+
+const backClick = () => {
+    setPlaybackRate(playbackRate + 0.1);
+    play(back);
+};
+
+const submitClick = () => {
+    setPlaybackRate(playbackRate + 0.1);
+    play2(submit);
+};
+
 
 
 return (
@@ -140,11 +167,12 @@ return (
             id="is_available"
             value={toy.is_available }
             type="checkbox"
+            checked={true}
             onChange={handleCheckboxChange}
-        />
-        <button className="back-main">Submit</button>
+        /> 
+        <button className="back-main" onClick={submitClick}>Submit</button>
         <Link to={'/toys'}>
-            <button className="back-main">Back</button>
+        <button className="back-main" onClick={backClick}>Back</button>
         </Link>
     </form>
     </div>

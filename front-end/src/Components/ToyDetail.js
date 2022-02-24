@@ -1,13 +1,27 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import useSound from "use-sound";
 import "../Style/Details.css";
+import back from "../Audio/back.mp3";
+import edit from "../Audio/edit.mp3";
+import audioDelete from "../Audio/delete.mp3";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVolumeOff, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
+
+
 
 function ToyDetail () {
     const API = process.env.REACT_APP_API_URL;
     const navigate = useNavigate();
     const { id }  = useParams();
     const [toy, setToy] = useState({});
+    const [ mute, setMute ] = useState(false);
+
+
+const handleClick = () => {
+    setMute({ ...mute, clicked: !mute.clicked });
+};
 
 
 useEffect(() => {
@@ -24,6 +38,39 @@ const handleDelete = () => {
 };
 
 
+const [playbackRate, setPlaybackRate] = useState(0.75);
+
+const[play, { stop }] = useSound(back, {
+    volume: 0.5,
+});
+
+const [play2, { stop2 }] = useSound(edit, {
+    volume: 0.5,
+});
+
+const [play3, { stop3 }] = useSound(audioDelete, {
+    volume: 0.5,
+});
+
+const backClick = () => {
+    setPlaybackRate(playbackRate + 0.1);
+    play(back);
+};
+
+const editClick = () => {
+    setPlaybackRate(playbackRate + 0.1);
+    play2(edit);
+};
+
+const deleteClick = () => {
+    setPlaybackRate(playbackRate + 0.1);
+    play3(audioDelete);
+    stop(audioDelete);
+};
+
+
+
+
 return (
     <main className="toys-wrapper">
         <div className="left-column"><img className="detail-img" src={toy.image} alt={toy.name}/></div>
@@ -33,29 +80,38 @@ return (
                     <br></br>
                     <br></br>
                     <br></br>
-                    <br></br>
-                    <br></br>
                     <h4 className="detail-price">Price: {"$" + toy.price}</h4>
                 <div className="detail-available">
                     {toy.is_available ?
                     (<p style={{ color: "green" }}>{"Available"}</p>) : 
                     (<p style={{ color: "red" }}>{"Out of stock"}</p>)}
+                    <br></br>
+        <div className='icon-detail' onClick={handleClick}>
+        {mute.clicked ? 
+        (<FontAwesomeIcon icon={faVolumeXmark}/>) : 
+        (<FontAwesomeIcon icon={faVolumeOff}></FontAwesomeIcon> )}
+        </div>
+        <br></br>
                 </div>
             </div>
             
 
         <div>
             <Link to="/toys">
-            <button className="btn">Back</button>
+            <button className="btn" onClick={!mute.clicked ? backClick : stop}>Back</button>
             </Link>
         </div>
         <div>
             <Link to={`/toys/${toy.id}/edit`}>
-            <button className="btn">Edit</button>
+            <button className="btn" onClick={!mute.clicked ? editClick : stop2 }>Edit</button>
             </Link>
         </div>
         <div>
-            <button className="btn" onClick={handleDelete}>Delete</button>
+            <button className="btn" 
+            onClick={!mute.clicked ? () => {
+                handleDelete(); deleteClick();
+            } : () => {
+                handleDelete(); stop3(); }}>Delete</button>
         </div>
     </main>
     );
