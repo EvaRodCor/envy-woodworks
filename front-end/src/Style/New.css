@@ -62,3 +62,16 @@ label.price {
     font-size: 25px;
 
 }
+
+.icon-new {
+    color: aliceblue;
+    margin-left: 10px;
+    width: 40px;
+}
+
+.icon-edit {
+    color: aliceblue;
+    margin-left: 10px;
+    width: 40px;
+    padding: 15px;
+}

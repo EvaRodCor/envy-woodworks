@@ -5,13 +5,16 @@ import '../Style/New.css';
 import useSound from "use-sound";
 import back from "../Audio/back.mp3";
 import submit from "../Audio/submit.mp3";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVolumeOff, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
+
 
 const API = process.env.REACT_APP_API_URL;
 
 function NewToyForm() {
-// let { id } = useParams();
 let navigate = useNavigate();
-
+const [ mute, setMute ] = useState(false);
+const [playbackRate, setPlaybackRate] = useState(0.75);
 const [toy, setToy] = useState({
     name: "",
     description: "",
@@ -37,6 +40,9 @@ const newToy = (addedToy) => {
 };
 
 
+const handleClick = () => {
+    setMute({ ...mute, clicked: !mute.clicked });
+};
 
 
 const handleTextChange = (event) => {
@@ -61,13 +67,13 @@ const handleSubmit = (event) => {
 
 
 
-const [playbackRate, setPlaybackRate] = useState(0.75);
 
-const[play] = useSound(back, {
+
+const[play , { stop }] = useSound(back, {
     volume: 0.5,
 });
 
-const [play2] = useSound(submit, {
+const [play2, { stop2 }] = useSound(submit, {
     volume: 0.5,
 });
 
@@ -86,6 +92,7 @@ const submitClick = () => {
 
 return (
     <div className="add-container">
+    
     <form className="add-form" onSubmit={handleSubmit}>
         <label className="new-name" htmlFor="name">Name</label>
         <br></br>
@@ -170,9 +177,16 @@ return (
             checked={true}
             onChange={handleCheckboxChange}
         /> 
-        <button className="back-main" onClick={submitClick}>Submit</button>
+        <br></br>
+        <br></br>
+        <div className='icon-new' onClick={handleClick}>
+        {mute.clicked ? 
+        (<FontAwesomeIcon icon={faVolumeXmark}/>) : 
+        (<FontAwesomeIcon icon={faVolumeOff}></FontAwesomeIcon> )}
+        </div>
+        <button className="back-main" onClick={!mute.clicked ? submitClick : stop }>Submit</button>
         <Link to={'/toys'}>
-        <button className="back-main" onClick={backClick}>Back</button>
+        <button className="back-main" onClick={!mute.clicked ? backClick : stop2 }>Back</button>
         </Link>
     </form>
     </div>

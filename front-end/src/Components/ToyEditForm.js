@@ -1,13 +1,20 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import useSound from "use-sound";
+import back from "../Audio/back.mp3";
+import submit from "../Audio/submit.mp3";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVolumeOff, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
+
 
 
 function ToyEditForm () {
 const API = process.env.REACT_APP_API_URL;
 let { id } = useParams();
 let navigate = useNavigate();
-
+const [ mute, setMute ] = useState(false);
+const [playbackRate, setPlaybackRate] = useState(0.75);
 const [toy, setToy] = useState({
     name: "",
     description: "",
@@ -17,6 +24,9 @@ const [toy, setToy] = useState({
     image: "",
     is_available: true
 });
+
+
+
 
 const updateToy = (updatedToy) => {
     axios
@@ -30,15 +40,29 @@ const updateToy = (updatedToy) => {
     .catch((err) => console.warn("catch", err));
 };
 
+
+
+
+const handleClick = () => {
+    setMute({ ...mute, clicked: !mute.clicked });
+};
+
+
+
+
 const handleTextChange = (event) => {
     event.target.id === "price"
     ? setToy({ ...toy, [event.target.id]: Number(event.target.value) })
     : setToy({ ...toy, [event.target.id]: event.target.value });
 };
 
+
+
 const handleCheckboxChange = () => {
     setToy({ ...toy, is_available: !toy.is_available });
 };
+
+
 
 useEffect(() => {
     axios.get(`${API}/toys/${id}`).then(
@@ -47,10 +71,40 @@ useEffect(() => {
     );
 }, [API, id, navigate]);
 
+
+
 const handleSubmit = (event) => {
     event.preventDefault();
     updateToy(toy, id);
 };
+
+
+
+
+const[play, { stop }] = useSound(back, {
+    volume: 0.5,
+});
+
+const [play2, { stop2 }] = useSound(submit, {
+    volume: 0.5,
+});
+
+
+
+
+
+const backClick = () => {
+    setPlaybackRate(playbackRate + 0.1);
+    play(back);
+};
+
+const submitClick = () => {
+    setPlaybackRate(playbackRate + 0.1);
+    play2(submit);
+};
+
+
+
 
 return (
     <div className="add-container">
@@ -138,9 +192,16 @@ return (
             checked={true}
             onChange={handleCheckboxChange}
         />
-        <button className="back-main">Submit</button>
+        <br></br>
+        <br></br>
+        <div className='icon-edit' onClick={handleClick}>
+        {mute.clicked ? 
+        (<FontAwesomeIcon icon={faVolumeXmark}/>) : 
+        (<FontAwesomeIcon icon={faVolumeOff}></FontAwesomeIcon> )}
+        </div>
+        <button className="back-main" onClick={!mute.clicked ? submitClick : stop }>Submit</button>
         <Link to={`/toys/${id}`}>
-            <button className="back-main">Back</button>
+            <button className="back-main" onClick={!mute.clicked ? backClick : stop2 }>Back</button>
         </Link>
     </form>
     </div>
