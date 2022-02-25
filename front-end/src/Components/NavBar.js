@@ -10,10 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeOff, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
 
 
-
-
-
-
 function NavBar() {
     const [playbackRate, setPlaybackRate] = useState(0.75);
     const [ mute, setMute ] = useState(false);
@@ -40,19 +36,16 @@ const handleClick = () => {
     const homeClick = () => {
         setPlaybackRate(playbackRate + 0.1);
         play(home)
-        // stop(home);
     };
 
     const addClick = () => {
         setPlaybackRate(playbackRate + 0.1);
         play2(addToy);
-        // stop2(addToy);
     };
 
     const toysClick = () => {
         setPlaybackRate(playbackRate + 0.1);
         play3(toySound);
-        // stop3(toySound);
     };
 
 
@@ -78,6 +71,10 @@ return (
         
         <Link to="/toys/new" style={{ textDecoration: 'none' }}>
         <button className="add" onClick={!mute.clicked ? addClick : stop3}>ADD TOY</button>
+        </Link>
+
+        <Link to="/toys/cart" style={{ textDecoration: 'none' }}>
+        <button className="cart">GO TO CART</button>
         </Link>
     </nav>
     );

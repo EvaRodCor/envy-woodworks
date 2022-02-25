@@ -93,3 +93,14 @@ button.btn:hover {
     color: aliceblue;
     margin-left: 10px;
 }
+
+.btn-add-cart {
+    margin-right: 1px;
+    background-color: #c836ec;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: all .5s;
+}

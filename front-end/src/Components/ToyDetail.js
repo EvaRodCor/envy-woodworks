@@ -11,12 +11,13 @@ import { faVolumeOff, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 
-function ToyDetail () {
+function ToyDetail ({  cart, setCart, addToCart }) {
     const API = process.env.REACT_APP_API_URL;
     const navigate = useNavigate();
     const { id }  = useParams();
     const [toy, setToy] = useState({});
     const [ mute, setMute ] = useState(false);
+    
 
 
 const handleClick = () => {
@@ -68,6 +69,19 @@ const deleteClick = () => {
     stop(audioDelete);
 };
 
+// let newCart = [];
+
+// const addToCart = (toy) => {
+//     let itemInCart = newCart.find(
+//     (item) => toy.name === item.name
+//     );
+//     if (itemInCart) {
+//         newCart.push(itemInCart);
+//     }
+    
+//     setCart({...cart, toy });
+
+// };
 
 
 
@@ -90,12 +104,15 @@ return (
         {mute.clicked ? 
         (<FontAwesomeIcon icon={faVolumeXmark}/>) : 
         (<FontAwesomeIcon icon={faVolumeOff}></FontAwesomeIcon> )}
-        </div>
+        </div> 
+        <Link to={`/toys/cart`}>
+        <button className="btn-add-cart" onClick={() => { addToCart(toy) }} >ADD TO CART</button>
+        </Link>
+        <br></br>
         <br></br>
                 </div>
             </div>
             
-
         <div>
             <Link to="/toys">
             <button className="btn" onClick={!mute.clicked ? backClick : stop}>Back</button>

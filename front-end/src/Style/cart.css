@@ -1,0 +1,47 @@
+.cart-container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    justify-content: space-around;
+    display: flex;
+}
+
+.wrapper {
+    box-shadow: 0 4px 8px 0 rgb(248, 247, 247);
+    transition: 0.3s;
+    width: 20%;
+}
+
+.wrapper:hover {
+    box-shadow: 0 8px 16px 0 rgb(253, 251, 251);
+}
+
+.image-cart {
+    width: 100%;
+    height: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.price-cart {
+    font-family: 'Roboto', sans-serif;
+    padding: -10px 20px;
+    color: white;
+    font-size: 20px;
+}
+
+
+.name-cart {
+    font-size: 20px;
+    font-family: 'Shizuru';
+    color: whitesmoke;
+}
+
+h4 {
+    float: right;
+    font-size: 30px;
+}
+
+.money-plus {
+    padding: 10px 20px;
+    font-size: 25px;
+}

@@ -31,7 +31,7 @@ const Click = () => {
     
 
 return (
-<div className="toy">
+<div className="toy-itemContainer">
 {(<div className='icon-toy' onClick={handleClick}>
         {mute.clicked ? 
         (<FontAwesomeIcon icon={faVolumeXmark}/>) : 

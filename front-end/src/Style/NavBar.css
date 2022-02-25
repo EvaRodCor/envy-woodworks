@@ -10,8 +10,8 @@ nav {
     
     
     img.logo {
-        width: 145px;
-        height: 110px;
+        width: 135px;
+        height: 100px;
         position:absolute;
         left:0;
         top:0;  
@@ -20,21 +20,23 @@ nav {
 
     button.add {
         border-radius: 8px;
+        color: black;
         background-color: white;
         color: black;
         border: 2px solid #4CAF50;
-        padding: 14px 40px;
+        padding: 10px 20px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 18px;
+        font-size: 15px;
     }
 
     button.toys {
+        color: black;
         border-radius: 8px;
         background-color: white;
         border: 2px solid red;
-        padding: 14px 40px;
+        padding: 10px 20px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -42,14 +44,27 @@ nav {
     }
 
     button.home {
+        color: black;
         border-radius: 8px;
         background-color: white;
         border: 2px solid rgb(62, 172, 236);
-        padding: 14px 40px;
+        padding: 10px 20px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 10px;
+    }
+
+    button.cart {
+        border-radius: 8px;
+        color: black;
+        background-color: white;
+        border: 2px solid rgb(241, 238, 29);
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 15px;
     }
 
     button{
@@ -78,8 +93,13 @@ nav {
         transform: translateY(4px);
 }
 
+button.cart:hover {
+    background-color: #bcd101; 
+    color: white;
+}
+
 .icon {
     color: blue;
-    width: 20%;
-    height: 20%;
+    width: -50%;
+    height: 10%;
 }

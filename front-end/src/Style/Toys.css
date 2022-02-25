@@ -1,8 +1,9 @@
 
+
 .card {
     box-shadow: 0 4px 8px 0 rgb(248, 247, 247);
     transition: 0.3s;
-    width: 25%;
+    width: 30%;
   }
   
   .card:hover {
@@ -33,3 +34,4 @@
     margin: 0 auto;
     padding: 15px;
   }
+
