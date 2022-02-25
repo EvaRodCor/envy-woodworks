@@ -12,6 +12,7 @@ const [playbackRate, setPlaybackRate] = useState(0.75);
 const [ mute, setMute ] = useState(false);
 
 
+
 const handleClick = () => {
     setMute({ ...mute, clicked: !mute.clicked });
 };
@@ -24,11 +25,13 @@ const [play, { stop }] = useSound(click, {
 });
 
 
+
 const Click = () => {
     setPlaybackRate(playbackRate + 0.1);
     play(click);
 };
-    
+
+
 
 return (
 <div className="toy-itemContainer">
